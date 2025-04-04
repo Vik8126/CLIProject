@@ -1,4 +1,4 @@
-package com.cliproject
+package com.cliProject.CLI
 
 import android.app.Application
 import com.facebook.react.PackageList
