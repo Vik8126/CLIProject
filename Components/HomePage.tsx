@@ -10,7 +10,7 @@ const HomePage = () => {
 
   const fetchData = async () => {
     try {
-      const usersSnapshot = await firestore().collection('Users').get();
+      const usersSnapshot = await firestore().collection('users').get();
       const allUsers = usersSnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data(),
@@ -49,8 +49,8 @@ const HomePage = () => {
       {users.map(user => (
         <View key={user.id} style={styles.userContainer}>
           <Text style={styles.itemText}>ID: {user.id}</Text>
-          <Text style={styles.itemText}>Name: {user.Workout || 'N/A'}</Text>
-          <Text style={styles.itemText}>Email: {user.Workout || 'N/A'}</Text>
+          <Text style={styles.itemText}>Name: {user.fruits || 'N/A'}</Text>
+          <Text style={styles.itemText}>Email: {user.veg || 'N/A'}</Text>
         </View>
       ))}
     </ScrollView>
