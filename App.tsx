@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginPage from './Components/LoginPage';
 import HomePage from './Components/HomePage';
+import PaymentScreen from './Components/PaymentScreen';
 import { requestUserPermission, setupNotificationListeners } from './Components/FirebaseConfig';
 
 const CliStack = createStackNavigator();
@@ -22,6 +23,7 @@ const App = () => {
         <CliStack.Navigator initialRouteName='Login'>
           <CliStack.Screen name='Login' component={LoginPage} />
           <CliStack.Screen name='Home' component={HomePage} />
+          <CliStack.Screen name='Payment' component={PaymentScreen} />
         </CliStack.Navigator>
       </NavigationContainer>
     </SafeAreaView>

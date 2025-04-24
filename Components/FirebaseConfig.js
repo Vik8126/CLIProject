@@ -1,6 +1,7 @@
 import messaging from '@react-native-firebase/messaging';
 import {Alert, Platform} from 'react-native';
-import notifee, {AndroidImportance} from '@notifee/react-native'; // Replace for local notifications
+import notifee, {AndroidImportance} from '@notifee/react-native'; 
+import firestore from '@react-native-firebase/firestore';
 
 export async function requestUserPermission() {
   const authStatus = await messaging().requestPermission();
@@ -71,3 +72,22 @@ async function displayNotification(remoteMessage) {
     },
   });
 }
+
+
+export const savePaymentDetails = async (
+  paymentId: string,
+  amount: number,
+  status: string,
+) => {
+  try {
+    await firestore().collection('payments').add({
+      paymentId,
+      amount,
+      status,
+      timestamp: firestore.FieldValue.serverTimestamp(),
+    });
+  } catch (error) {
+    console.error('Error saving payment:', error);
+    throw error;
+  }
+};

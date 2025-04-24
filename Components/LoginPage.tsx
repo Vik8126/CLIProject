@@ -31,7 +31,7 @@ const LoginPage = () => {
         setIsNewUser(false);
       } else {
         await auth().signInWithEmailAndPassword(email, password);
-        navigation.navigate('Home');
+        navigation.navigate('Payment');
       }
     } catch (error) {
       console.error('Auth Error:', error.message);
